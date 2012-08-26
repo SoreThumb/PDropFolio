@@ -1,0 +1,33 @@
+# The below line needs to work.  If it doesn't work, neither will your site.
+RewriteEngine On
+
+#Trailing Slash Requirement
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ $1/ [L,R=301] 
+
+#404 Listing
+ErrorDocument 404 /four-o-four/
+#But we need this
+RewriteRule ^four-o-four/$ index.php?doThis=loadPage&pageFile=four-o-four
+
+RewriteCond %{REQUEST_URI} [A-Z_\s] [OR]
+RewriteCond %{REQUEST_URI} _
+RewriteRule (.*) index.php?doThis=cleanup&pageFile=$1 [QSA]
+
+
+#Homepage
+RewriteRule ^$ index.php?pageFile=index [QSA] 
+
+#Display a page from the pages folder.
+RewriteRule ^contact-me/$ index.php?doThis=loadContact&pageFile=portfolio [QSA]
+RewriteRule ^portfolio/$ index.php?doThis=loadFolio&pageFile=portfolio [QSA]
+RewriteRule ^portfolio/([-a-z0-9][-a-z0-9\/]+)*$ index.php?doThis=loadFolioFile&pageFile=$1 [QSA]
+
+RewriteRule ^buy/$ index.php?doThis=loadBuy&pageFile=buy [QSA]
+RewriteRule ^buy/([-a-z0-9][-a-z0-9\/]+)*$ index.php?doThis=loadBuyFile&pageFile=$1 [QSA]
+
+RewriteRule ^sold/$ index.php?doThis=loadSold&pageFile=sold [QSA]
+RewriteRule ^sold/([-a-z0-9][-a-z0-9\/]+)*$ index.php?doThis=loadSoldFile&pageFile=$1 [QSA]
+RewriteRule ^([-a-z0-9][-a-z0-9\/]+)/$ index.php?doThis=loadPage&pageFile=$1 [QSA]

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Set up SoreThumb's Dropbox CMS</title>
+	<link href="http://fonts.googleapis.com/css?family=Average" rel="stylesheet" type="text/css">
+<style>
+
+body { font-family: 'Average', serif; }
+
+.smoothBg {
+	background: #f0f9ff;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YwZjlmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhMWRiZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #f0f9ff 0%, #a1dbff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f9ff), color-stop(100%,#a1dbff));
+	background: -webkit-linear-gradient(top,  #f0f9ff 0%,#a1dbff 100%);
+	background: -o-linear-gradient(top,  #f0f9ff 0%,#a1dbff 100%);
+	background: -ms-linear-gradient(top,  #f0f9ff 0%,#a1dbff 100%);
+	background: linear-gradient(to bottom,  #f0f9ff 0%,#a1dbff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 );
+}
+.roundCorners {
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	padding: 10px;
+	margin: 10px;
+}
+h1, h2, h3, h4, h5 {
+	color: #1865B2; padding: 0px; margin: 0px;
+}
+.smoothBg h1,.smoothBg  h2,.smoothBg  h3,.smoothBg  h4,.smoothBg  h5 {
+	color: #003572; padding: 0px; margin: 0px;
+	font-weight: normal;
+}
+.noFloat { clear: both; }
+.floatRight { float: right; }
+
+fieldset { border: solid 0px; padding: 0px; margin: 0px; }
+
+</style>
+	</head>
+	<body>
+		<div id="incomplete">
+			<h1>Set up your Dropbox-based Gallery ArtSite</h1>
+			<h5>*cough cough made by <a href="http://sorethumb.me">SoreThumb</a>, cough*</h5>
+			<form method="POST">
+				<fieldset>
+					<div id="step-1" class="step">
+						<h1>Step One: Configure your Dropbox!</h1>
+						<span class="hide">
+							<p>First, Dropbox doesn't allow just anyone connect.  So, you have to tell Dropbox that you are working on an app/site that needs to use Dropbox.</p>
+							<p>So..
+							<ol><li><a href="https://www.dropbox.com/developers/apps" target="_blank">Go here, to the Dropbox Apps page.</a></li>
+								<li>Hit the button to create a new App.</li>
+								<li>Though you can change it later, what you type in the 'name' field will be the folder in Dropbox to look at for your site.</li>
+								<li>Put this into the description field: <pre>Dropbox-Based PHP Site; http://
+							
+						</span>
+					</div>
+					<div id="step-2" class="step">
+						<h1>Step Two: Configure your Site!</h1>
+						<span class="hide">
+							<p>OK!  So, you've set up the app in Dropbox!
+							<div class="smoothBg roundCorners noFloat">
+								<input type="text" name="yourName" id="yourName" value="" class="required floatRight" />
+								<h3><label for="yourName">Your Name:</label></h3>
+								<p class="noFloat">As a note, any spaces in your name help this site figure out your 'first' and 'last' name.</p>
+							</div>
+							
+							<div class="smoothBg roundCorners noFloat">
+								<input type="text" name="yourMail" id="yourMail" value="" class="email required floatRight"/>
+								<h3><label for="yourMail">Your eMail:</label></h3>
+							</div>
+							
+							<div class="smoothBg roundCorners noFloat">
+								<input type="text" name="siteTitle" id="siteTitle" value="" class="required floatRight" style="min-width: 200px;" />
+								<h3><label for="siteTitle">Your site's title:</label></h3>
+							</div>
+						</span>
+					</div>
+					
+					<button class="smoothBg roundCorners noFloat" id="submitForm">
+						<b>Submit!</b>
+					</button>
+				</fieldset>
+			</form>
+		</div>
+		<div id="complete">
+			<h1>Setting up your site...</h1>
+			<p>Waiting..</p>
+		</div>
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</body></html>
