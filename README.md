@@ -13,7 +13,7 @@ After that, they access http://THEIR/INSTALL/LOCATION/install/ which prompts the
 PDropBox asks for three things:
 1.  To create an app at the user's dropbox account, and to bring the dropbox-provided keys to PDropBox,
 2.  To initially configure the site using the user's settings,
-3.  Patience for the user to edit the layout files.
+3.  And then finally authorizing this PDropFolio installation to use the installer's dropbox.
 
 II. RESULTS
 
